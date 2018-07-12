@@ -1,6 +1,5 @@
 <template>
-
-  <div id="loginbox" style="margin-top:50px; text-align: center;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
     <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
         <div class="panel-heading">
             <div class="panel-title">Sign In</div>
@@ -9,7 +8,7 @@
         <div style="padding-top:30px" class="panel-body" >
             <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
-            <form id="loginform" class="form-horizontal" role="form">
+            <form v-if="!seen" id="loginform" class="form-horizontal" role="form">
                 <div style="margin-bottom: 25px" class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -31,8 +30,8 @@
                     <div class="col-md-12 control">
                         <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
                             Don't have an account! 
-                            <a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()">
-                                Sign Up Here
+                            <a>
+                                <router-link to="/signup">Sign Up Here</router-link>
                             </a>
                         </div>
                     </div>
@@ -40,26 +39,44 @@
             </form>
         </div>
     </div>
-  </div>
+    </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      seen: false
+    };
+  },
+};
 
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 
 <style>
-
-#btn-fblogin{
-    margin-left:10px;
+#btn-fblogin {
+  margin-left: 250px;
 }
 
-#loginbox{
-    margin-left:250px;
-    
+#loginbox {
+
+  margin-left: 250px;
+      /* border:1px solid black */
+
+}
+
+#exampleInputEmail1{
+      margin-left: -5px;
+
+    /* border:1px solid black */
+}
+
+#exampleInputPassword1{
+      margin-left: -5px;
+
+    /* border:1px solid black */
 }
 
 
