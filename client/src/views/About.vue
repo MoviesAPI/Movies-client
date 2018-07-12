@@ -1,5 +1,17 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="home">
+    <Login/>
   </div>
 </template>
+
+<script>
+// @ is an alias to /src
+import Login from '@/components/loginForm.vue'
+
+export default {
+  name: 'home',
+  components: {
+    Login
+  }
+}
+</script>
