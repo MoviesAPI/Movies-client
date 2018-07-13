@@ -32,12 +32,7 @@
 
                 <div id="or" class="form-button">
                     <div class="col-md-offset-3 col-md-9">
-                        <span style="margin-left:8px;">or</span>  
-                    </div>
-                </div>
-                <div style="margin-top:10px" class="form-button">
-                    <div class="col-sm-12 controls">
-                        <a id="btn-fbsignup"  class="btn btn-primary">Sign Up with Facebook</a>
+                      
                     </div>
                 </div>
                 
@@ -50,7 +45,7 @@
 export default {
   data() {
     return {
-      seen: false
+      
     };
   }
 };
