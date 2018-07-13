@@ -104,13 +104,14 @@ export default {
 }
 
 .panel-heading {
-  margin-left: 128px;
+  margin-left: 44px;
   border: 1px solid steelblue;
-  width: 61%;
+  width: 82%;
   border-radius: 5px;
   padding: 10px;
   font-size: 20px;
   background-color: steelblue;
+  margin-bottom: 10px
 }
 
 .panel-title {

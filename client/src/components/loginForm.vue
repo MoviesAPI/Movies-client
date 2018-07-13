@@ -99,7 +99,7 @@ export default {
           axios
             .post('http://localhost:3000/users/loginFb', account)
             .then(response => {
-              
+
               console.log(response)
               // console.log(response.data.token);
               // this.$router.push('/login')
@@ -121,6 +121,11 @@ export default {
           var email = error.email
           var credential = error.credential
         })
+    }
+  },
+  created () {
+    if(localStorage.hasOwnProperty('token')){
+      this.$router.push('/')
     }
   }
 }
