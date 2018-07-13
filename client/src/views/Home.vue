@@ -6,11 +6,11 @@
               <input v-model="inputSearch" type="text" class="fname" placeholder="Find Movies, TV shows">
               </v-flex>
               <v-flex>
-                <v-btn ><v-icon>search</v-icon></v-btn>
+                <v-btn @click="searchFilm" to="/search" ><v-icon>search</v-icon></v-btn>
               </v-flex>
             <v-spacer></v-spacer>
             <v-toolbar-items class="hidden-sm-and-down" >
-              <v-btn @click="searchFilm" color="white" >link 1</v-btn>
+              <v-btn  color="white" >link 1</v-btn>
               </v-toolbar-items>
         </v-toolbar>
     <v-container xs12 >
