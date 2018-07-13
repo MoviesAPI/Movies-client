@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+// import request from 'request'
+var request = require('request');
 
 Vue.use(Vuex)
 
@@ -10,7 +12,8 @@ export default new Vuex.Store({
     searchQuery : '',
     searchResult : [],
     detailFilm : '',
-    getDetailFilm : ''
+    getDetailFilm : '',
+    nytReview : ''
   },
   mutations: {
     getSearchQuery (state, payload) {
@@ -24,6 +27,9 @@ export default new Vuex.Store({
     },
     setDetailFilm (state, payload) {
       state.getDetailFilm = payload
+    },
+    setNYT (state, payload) {
+      state.nytReview = payload
     }
   },
   actions: {
@@ -62,6 +68,31 @@ export default new Vuex.Store({
         context.commit('setDetailFilm',result)
         console.log(this.state.getDetailFilm)
       })
+    },
+    getReviewFilm (context,query) {
+      console.log('ini review film', query)
+      var modal = document.getElementById('myModal');
+      var span = document.getElementsByClassName("close")[0];
+      let temp = ''
+      modal.style.display = "block";
+      request.get({
+        url:  "https://api.nytimes.com/svc/movies/v2/reviews/search.json",
+        qs: {
+          'api-key': "98fef1f9f9a644978bb71959885c20d7",
+          'query': query
+        }
+      }, function(err, response, body){
+        body = JSON.parse(body)
+        // console.log(body)
+        this.nytReview = body
+        // console.log(this.nytReview,'Hasil review')
+      })
+      console.log(this.state.nytReview, ' kok kosong ya')
+    },
+    spanClose (context) {
+      console.log('span close')
+      var modal = document.getElementById('myModal');
+      modal.style.display = "none";
     }
   }
 })
