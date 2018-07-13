@@ -60,7 +60,7 @@
                 <!-- Modal content -->
                 <div class="modal-content">
                     <span class="close"> <v-btn icon @click="spanClose" ><v-icon>close</v-icon></v-btn> </span>
-                    <p>Some text in the Modal..</p>
+                    <p> {{nytReview}} </p>
                 </div>
 
                 </div>
@@ -74,7 +74,7 @@ import {mapActions, mapState} from 'vuex'
     export default {
         computed: {
             ...mapState([
-                'getDetailFilm'
+                'getDetailFilm','nytReview'
             ])
         },
         methods: {

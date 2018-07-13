@@ -65,7 +65,7 @@ export default {
             text: 'Login Success',
             icon: 'success'
           })
-          this.$router.push('/home')
+          this.$router.push('/')
         })
 
         .catch(err => {
@@ -83,7 +83,7 @@ export default {
         .then(result => {
           // var token = result.credential.accessToken
 
-          // console.log(token)
+          console.log(result.user.displayName)
           // localStorage.setItem('token', token)
           swal({
             text: 'Login Success',
@@ -91,20 +91,22 @@ export default {
           })
 
           let account = {
-            name: result.user.providerData[0].displayName[0],
-            email: result.user.providerData[0].email,
-            password: result.user.providerData[0].displayName
+            name: result.user.displayName,
+            email: result.user.email,
+            password: result.user.displayName
           }
 
           axios
             .post('http://localhost:3000/users/loginFb', account)
             .then(response => {
+              
+              console.log(response)
               // console.log(response.data.token);
               // this.$router.push('/login')
-              console.log('masuk lah gan', response.data.token)
+              // console.log('masuk lah gan', response.data.token)
 
               localStorage.setItem('token', response.data.token)
-              this.$router.push('/home')
+              this.$router.push('/')
             })
             .catch(err => {})
 

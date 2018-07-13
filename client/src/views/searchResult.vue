@@ -10,7 +10,7 @@
               </v-flex>
             <v-spacer></v-spacer>
             <v-toolbar-items class="hidden-sm-and-down" >
-              <v-btn  color="white" >link 1</v-btn>
+              <v-btn @click= "logout()"  color="white" >logout</v-btn>
               </v-toolbar-items>
         </v-toolbar>
     <h1> {{searchResult.length}} hasil Pencarian untuk {{searchQuery}} </h1>
@@ -52,7 +52,10 @@ export default {
     methods: {
         ...mapActions([
         'searchFilm', 'getDetail'
-        ])
+        ]),  logout () {
+      localStorage.clear()
+      this.$router.push('/about')
+    }
     },
     data () {
         return {
