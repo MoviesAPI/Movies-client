@@ -26,28 +26,50 @@
 
                 <div style="margin-top:10px" class="form-button">
                     <div class="col-sm-12 controls">
-                        <a id="btn-signup" class="btn btn-success">Sign Up</a>
+                        <a @click="signup" id="btn-signup" class="btn btn-success">Sign Up</a>
                     </div>
                 </div>
-
-                <div id="or" class="form-button">
-                    <div class="col-md-offset-3 col-md-9">
-
-                    </div>
-                </div>
-
             </form>
         </div>
     </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data() {
     return {
       emailSignup: '',
       passwordSignup: '',
       nameSignup: ''
+    }
+  },
+  methods: {
+    signup() {
+      let obj = {
+        email: this.emailSignup,
+        name: this.nameSignup,
+        password: this.passwordSignup
+      }
+
+      axios
+        .post('http://localhost:3000/users/signup', obj)
+        .then(response => {
+
+          swal({
+            text: 'Signup Success',
+            icon: 'success'
+          })
+          this.$router.push('/about')
+        })
+
+        .catch(err => {
+          
+          swal({
+            text: 'Something Wrong',
+            icon: 'error'
+          })
+        })
     }
   }
 }
