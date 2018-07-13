@@ -1,12 +1,12 @@
 <template>
   <div class="home">
-    <v-toolbar style="background-color:lightcoral">
-          <v-toolbar-title> <img :src="imdbLogo" alt="" height="40px" width="100px"></v-toolbar-title>
+    <v-toolbar style="background-color:lightcoral" >
+          <v-toolbar-title> <v-btn flat> <img :src="imdbLogo" alt="" height="40px" width="100px"> </v-btn> </v-toolbar-title>
               <v-flex style="margin-left:50px">
-              <input v-model="inputSearch" type="text" class="fname" placeholder="Find Movies, TV shows">
+              <input v-model="inputSearch" type="text" class="fname" placeholder="Find Movies, TV shows" style="background-color:white">
               </v-flex>
               <v-flex>
-                <v-btn @click="searchFilm" to="/search" ><v-icon>search</v-icon></v-btn>
+                <v-btn @click="searchFilm" to="/search" color="white" flat><v-icon>search</v-icon></v-btn>
               </v-flex>
             <v-spacer></v-spacer>
             <v-toolbar-items class="hidden-sm-and-down" >

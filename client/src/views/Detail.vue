@@ -16,7 +16,7 @@
 
                         <v-btn
                             class="mx-0"
-                            color="black"
+                            color="white"
                             large 
                             @click="getReviewFilm(getDetailFilm.Title)"
                         >
@@ -29,12 +29,12 @@
             </v-flex>
             <br>
             <v-flex xs6 style="margin-top=200px">
-                <v-card color="white" class="" height="350px">
+                <v-card color="white" class="" height="0px">
                     <v-layout row>
                         <v-flex xs5>
                         <v-card-media
                             :src="getDetailFilm.Poster"
-                            height="350px"
+                            height="490px"
                             contain
                         ></v-card-media>
                         </v-flex>
@@ -84,6 +84,9 @@ import {mapActions, mapState} from 'vuex'
         },
         created () {
             this.$store.dispatch('loadFilmDetail')
+            if (!localStorage.hasOwnProperty('token')) {
+                this.$router.push('/about')
+            }
         }
     }
 </script>
