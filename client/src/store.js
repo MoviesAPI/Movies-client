@@ -73,21 +73,16 @@ export default new Vuex.Store({
       console.log('ini review film', query)
       var modal = document.getElementById('myModal');
       var span = document.getElementsByClassName("close")[0];
-      let temp = ''
       modal.style.display = "block";
-      request.get({
-        url:  "https://api.nytimes.com/svc/movies/v2/reviews/search.json",
-        qs: {
-          'api-key': "98fef1f9f9a644978bb71959885c20d7",
-          'query': query
-        }
-      }, function(err, response, body){
-        body = JSON.parse(body)
-        // console.log(body)
-        this.nytReview = body
-        // console.log(this.nytReview,'Hasil review')
+      axios.get('http://localhost:3000/users/nyt/'+query)
+      .then(({data})=>{
+        // console.log(data.results[0].headline, 'ini dari axios get review film')
+        let tempeDua = data.results[0].headline
+        console.log(tempeDua, ' ini tempe dua')
+        context.commit('setNYT', tempeDua)
+        console.log(this.state.nytReview, ' ini dari state')
       })
-      console.log(this.state.nytReview, ' kok kosong ya')
+      
     },
     spanClose (context) {
       console.log('span close')
