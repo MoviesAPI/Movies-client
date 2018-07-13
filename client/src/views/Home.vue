@@ -52,6 +52,7 @@ export default {
     ])
   }
 }
+
 </script>
 <style scoped>
 input[type=text] {
@@ -63,3 +64,6 @@ input[type=text] {
   box-sizing: border-box
 }
 </style>
+
+</script>
+
